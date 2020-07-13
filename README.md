@@ -1,5 +1,4 @@
-# junk-ai
-Junk.ai
+# magenta-project
 
 ### Setup:
 `pip install -r requirements.txt`
