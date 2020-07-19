@@ -4,6 +4,8 @@ const ctx = c.getContext("2d");
 var xstart = Math.random() * 800;
 var ystart = Math.random() * 800;
 
+ctx.globalAlpha = 0.1;
+
 setInterval(() => {
     ctx.strokeStyle = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
@@ -18,4 +20,3 @@ setInterval(() => {
     xstart = xend;
     ystart = yend;
 }, 10);
-
