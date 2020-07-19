@@ -36,23 +36,27 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0px;
 }
 
+canvas {
+  margin: 0px auto;
+}
+
 @media (min-width: 576px) {
 	.container {
-		width: 400px;
+		width: 500px;
 	}
 }
 @media (min-width: 768px) {
     .container {
-        width: 500px;
+        width: 660px;
     }
 }
 @media (min-width: 992px) {
     .container {
-        width: 600px;
+        width: 800px;
     }
 }
 @media (min-width: 1200px) {
     .container {
-        width: 700px;
+        width: 1000px;
     }
 }
