@@ -15,7 +15,7 @@ setInterval(() => {
     ctx.moveTo(xstart, ystart);
     ctx.lineTo(xend, yend);
     ctx.stroke();
-
     xstart = xend;
     ystart = yend;
-}, 1000);
+}, 10);
+
