@@ -2,6 +2,8 @@
 {% block content %}
     <div class="text-center">
         <h1>think different</h1>
-        <canvas id="easel" width="800" height="800" style="border:1px solid #000000;">
+        <div onmouseover="mouseoverInit(event)" onmousemove="getCursorPosition(event)">
+            <canvas id="easel" width="800" height="800" style="border:1px solid #000000;"></canvas>
+        </div>
     </div>
 {% endblock content %}
