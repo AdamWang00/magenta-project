@@ -2,7 +2,7 @@
 {% block content %}
     <div class="text-center">
         <h1>think different</h1>
-        <div onmouseover="mouseoverInit(event)" onmousemove="getCursorPosition(event)">
+        <div onmousemove="getCursorPosition(event)" onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseout="mouseUp()">
             <canvas id="easel" width="800" height="800" style="border:1px solid #000000;"></canvas>
         </div>
     </div>

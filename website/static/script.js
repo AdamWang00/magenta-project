@@ -4,35 +4,44 @@ const cW = c.width;
 const cH = c.height;
 const ext = 50;
 
-let xStart, xEnd, yStart, yEnd
+let xStart, xEnd, yStart, yEnd, lmb
 
-ctx.globalAlpha = 0.5;
+const thicknessRatio = 1.2;
+const thicknessMin = 5;
+const thicknessMax = 20;
+ctx.globalAlpha = 0.4;
 
-const draw = () => {
+const draw = (xS, xE, yS, yE) => {
   ctx.strokeStyle = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  ctx.lineWidth =
-    Math.sqrt(
-      Math.pow(Math.abs(xStart - xEnd), 2) +
-        Math.pow(Math.abs(yStart - yEnd), 2)
-    ) / 20;
+  ctx.lineWidth = Math.max(thicknessMin,
+    Math.min(thicknessMax, thicknessRatio * Math.sqrt(
+      Math.pow(Math.abs(xS - xE), 2) + Math.pow(Math.abs(yS - yE), 2)
+    )));
 
   ctx.beginPath();
-  ctx.moveTo(xStart, yStart);
-  ctx.lineTo(xEnd, yEnd);
+  ctx.moveTo(xS, yS);
+  ctx.lineTo(xE, yE);
   ctx.stroke();
-  xStart = xEnd;
-  yStart = yEnd;
+  xStart = xE;
+  yStart = yE;
 };
 
-const mouseoverInit = event => {
+const initStart = event => {
   xStart = event.offsetX;
   yStart = event.offsetY;
-  console.log("A")
 };
 
 const getCursorPosition = event => {
   xEnd = event.offsetX;
   yEnd = event.offsetY;
-  if (xStart != xEnd || yStart != yEnd) draw();
-  console.log("B")
+  if (lmb && (xStart != xEnd || yStart != yEnd)) {
+    draw(xStart, xEnd, yStart, yEnd);
+  } else {
+    xStart = xEnd;
+    yStart = yEnd;
+  }
 };
+
+const mouseDown = () => lmb = true;
+
+const mouseUp = () => lmb = false;
