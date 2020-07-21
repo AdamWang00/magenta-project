@@ -1,25 +1,38 @@
 const c = document.getElementById("easel");
 const ctx = c.getContext("2d");
-const cW =  c.width
-const cH = c.height
-const ext = 50
+const cW = c.width;
+const cH = c.height;
+const ext = 50;
 
-var xstart = Math.random() * (cW + 2 * ext) - ext;
-var ystart = Math.random() * (cH + 2 * ext) - ext;
+let xStart, xEnd, yStart, yEnd
 
-ctx.globalAlpha = 0.08;
+ctx.globalAlpha = 0.5;
 
-setInterval(() => {
-    ctx.strokeStyle = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+const draw = () => {
+  ctx.strokeStyle = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  ctx.lineWidth =
+    Math.sqrt(
+      Math.pow(Math.abs(xStart - xEnd), 2) +
+        Math.pow(Math.abs(yStart - yEnd), 2)
+    ) / 20;
 
-    const xend = Math.random() * (cW + 2 * ext) - ext;
-    const yend = Math.random() * (cW + 2 * ext) - ext;
-    ctx.lineWidth = Math.sqrt(Math.pow(Math.abs(xstart - xend), 2) + Math.pow(Math.abs(ystart - yend), 2)) / 40;
-    
-    ctx.beginPath();
-    ctx.moveTo(xstart, ystart);
-    ctx.lineTo(xend, yend);
-    ctx.stroke();
-    xstart = xend;
-    ystart = yend;
-}, 10);
+  ctx.beginPath();
+  ctx.moveTo(xStart, yStart);
+  ctx.lineTo(xEnd, yEnd);
+  ctx.stroke();
+  xStart = xEnd;
+  yStart = yEnd;
+};
+
+const mouseoverInit = event => {
+  xStart = event.offsetX;
+  yStart = event.offsetY;
+  console.log("A")
+};
+
+const getCursorPosition = event => {
+  xEnd = event.offsetX;
+  yEnd = event.offsetY;
+  if (xStart != xEnd || yStart != yEnd) draw();
+  console.log("B")
+};
