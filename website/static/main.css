@@ -1,9 +1,6 @@
 body {
 	background: #E2EAF0;
 	color: #333333;
-	margin-top: 50px;
-
-	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,52 +8,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: #444444;
 }
 
-.light-box {
-  background-color: #0042FF;
-  color: #FFFFFF;
-  border-width: 3px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
-  height: 100%;
-	display: block;
-	transition-property: background-color, box-shadow, transform;
-	transition-duration: 0.25s;
-}
-
-.light-box:hover {
-  background-color: #4A64FF;
-	color: white;
-	text-decoration: none;
-	transform: translateY(-2px);
-  cursor: pointer;
-  box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.2);
-}
-
-.light-box p {
-	margin-bottom: 0px;
-}
-
 canvas {
-  margin: 0px auto;
-}
-
-@media (min-width: 576px) {
-	.container {
-		width: 500px;
-	}
-}
-@media (min-width: 768px) {
-    .container {
-        width: 660px;
-    }
-}
-@media (min-width: 992px) {
-    .container {
-        width: 800px;
-    }
-}
-@media (min-width: 1200px) {
-    .container {
-        width: 1000px;
-    }
+  position: absolute;
 }

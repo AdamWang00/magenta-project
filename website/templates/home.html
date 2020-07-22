@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="text-center">
-        <h1>think different</h1>
-        <div onmousemove="getCursorPosition(event)" onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseout="mouseUp()">
-            <canvas id="easel" width="800" height="800" style="border:1px solid #000000;"></canvas>
-        </div>
+    <div id="canvases" onmousemove="getCursorPosition(event)" onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseout="mouseUp()">
+        <canvas id="canvas-1" style="border:3px solid white;"></canvas>
+        <canvas id="canvas-2" style="border:3px solid white;"></canvas>
     </div>
 {% endblock content %}
